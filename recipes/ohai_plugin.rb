@@ -29,4 +29,6 @@ template "#{node['ohai']['plugin_path']}/nginx.rb" do
   )
 end
 
-include_recipe "ohai"
+if !Chef::Config[:solo]
+  include_recipe "ohai"
+end
