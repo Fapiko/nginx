@@ -2,7 +2,7 @@ maintainer        "Opscode, Inc."
 maintainer_email  "cookbooks@opscode.com"
 license           "Apache 2.0"
 description       "Installs and configures nginx"
-version           "1.0.2"
+version IO.read(File.join(File.dirname(__FILE__), 'VERSION')) rescue '0.0.1'
 name 'ljandrew_nginx'
 
 recipe "ljandrew_nginx", "Installs nginx package and sets up configuration with Debian apache style with sites-enabled/sites-available"
