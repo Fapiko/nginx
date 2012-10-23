@@ -19,6 +19,7 @@
 # limitations under the License.
 #
 
+
 template "#{node['ohai']['plugin_path']}/nginx.rb" do
   source "plugins/nginx.rb.erb"
   owner "root"
@@ -29,6 +30,4 @@ template "#{node['ohai']['plugin_path']}/nginx.rb" do
   )
 end
 
-if !Chef::Config[:solo]
-  include_recipe "ohai"
-end
+include_recipe "ohai"

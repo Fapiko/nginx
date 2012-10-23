@@ -58,7 +58,10 @@ end
 node.set['nginx']['binary']          = "#{node['nginx']['source']['prefix']}/sbin/nginx"
 node.set['nginx']['daemon_disable']  = true
 
-include_recipe "ljandrew_nginx::ohai_plugin"
+if !Chef::Config[:solo]
+  include_recipe "ljandrew_nginx::ohai_plugin"
+end
+
 include_recipe "build-essential"
 
 src_filepath  = "#{Chef::Config['file_cache_path'] || '/tmp'}/nginx-#{node['nginx']['source']['version']}.tar.gz"
